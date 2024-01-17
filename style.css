@@ -1,0 +1,306 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin-block: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  font-weight: inherit;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+body {
+  margin: 0;
+  font-family: "Rubik", sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  color: hsl(236, 100%, 87%);
+}
+
+#container {
+  min-height: 100vh;
+  background-color: hsl(226, 43%, 10%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+header {
+  background-color: hsl(235, 46%, 20%);
+}
+header > div {
+  background-color: hsl(246, 80%, 60%);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  padding-bottom: 2.75rem;
+}
+header > div img {
+  height: 4rem;
+  border: white 2px solid;
+  border-radius: 100%;
+}
+header > div h1 {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+header > div h1 span:first-child {
+  font-size: small;
+}
+header > div h1 span:last-child {
+  font-size: 2rem;
+  color: white;
+  font-weight: 300;
+}
+header nav ul {
+  list-style: none;
+  padding-inline: 1rem;
+}
+header nav ul li {
+  font-size: small;
+  font-weight: 400;
+  color: hsl(236, 100%, 87%);
+  line-height: 2rem;
+}
+header nav ul li + li {
+  margin-top: 0.25rem;
+}
+header nav ul li:hover {
+  cursor: pointer;
+  color: white;
+}
+header nav ul li.navigation-active {
+  color: white;
+}
+
+header,
+.card {
+  border-radius: 0.5rem;
+  width: 12rem;
+  max-width: 90vw;
+  overflow: hidden;
+}
+
+main {
+  display: grid;
+  grid-template: 1fr 1fr/1fr 1fr 1fr;
+  gap: 1.5rem;
+  justify-items: stretch;
+  align-items: stretch;
+}
+main .card-work {
+  background-color: hsl(15, 100%, 70%);
+}
+main .card-play {
+  background-color: hsl(195, 74%, 62%);
+}
+main .card-study {
+  background-color: hsl(348, 100%, 68%);
+}
+main .card-exercise {
+  background-color: hsl(145, 58%, 55%);
+}
+main .card-social {
+  background-color: hsl(264, 64%, 52%);
+}
+main .card-self-care {
+  background-color: hsl(43, 84%, 65%);
+}
+main .card:hover .header-card,
+main .card:hover .times,
+main .card:hover .current-time,
+main .card:hover .previous-time {
+  background-color: hsl(236, 41%, 34%);
+  cursor: pointer;
+}
+main .card .banner {
+  position: relative;
+  height: 2rem;
+  width: 100%;
+  overflow: hidden;
+}
+main .card .banner img {
+  position: absolute;
+  right: 0.5rem;
+  top: -0.5rem;
+  width: 3.5rem;
+}
+main .card-exercise .banner img {
+  top: 0rem;
+}
+main .card-self-care .banner img {
+  top: -0.75rem;
+}
+main .card .header-card,
+main .card .current-time,
+main .card .previous-time {
+  background-color: hsl(235, 46%, 20%);
+  z-index: 1;
+}
+main .card .header-card {
+  border-top-right-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+main .card .header-card h2 {
+  font-size: small;
+  font-weight: 500;
+  color: white;
+}
+main .card .header-card button {
+  all: unset;
+}
+main .card .header-card button img {
+  width: 1rem;
+}
+main .card .header-card button:hover img {
+  filter: saturate(1) brightness(5);
+}
+main .card .times {
+  background-color: hsl(235, 46%, 20%);
+  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+main .card .current-time {
+  font-size: 3rem;
+  color: white;
+  padding-inline: 1rem;
+  font-weight: 300;
+}
+main .card .previous-time {
+  font-size: small;
+  padding: 0.25rem 1rem 1.5rem;
+}
+
+footer {
+  color: black;
+  text-align: center;
+  font-size: small;
+}
+
+@media screen and (max-width: 1440px) {
+  #container {
+    padding: 4rem 1rem;
+  }
+  #container,
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  header,
+  main,
+  .card {
+    width: -webkit-fill-available;
+  }
+  header > div {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1rem;
+  }
+  header > div br {
+    display: none;
+  }
+  header > div h1 {
+    margin-top: 0;
+  }
+  header > div h1 span:last-child {
+    font-size: 18px;
+  }
+  header nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 2rem;
+  }
+  .times {
+    background-color: hsl(235, 46%, 20%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,270 @@
+@import "reset.scss";
+@import "colors.scss";
+
+$borderRadius: 0.5rem;
+
+body {
+  margin: 0;
+  font-family: "Rubik", sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  color: $paleblue;
+}
+
+#container {
+  min-height: 100vh;
+  background-color: $veryDarkBlue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+header {
+  background-color: $darkBlue;
+
+  & > div {
+    background-color: $blue;
+    border-radius: $borderRadius;
+    padding: 1rem;
+    padding-bottom: 2.75rem;
+
+    img {
+      height: 4rem;
+      border: white 2px solid;
+      border-radius: 100%;
+    }
+
+    h1 {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+
+      span {
+        &:first-child {
+          font-size: small;
+        }
+
+        &:last-child {
+          font-size: 2rem;
+          color: white;
+          font-weight: 300;
+        }
+      }
+    }
+  }
+
+  nav {
+    ul {
+      list-style: none;
+      padding-inline: 1rem;
+
+      li {
+        font-size: small;
+        font-weight: 400;
+        color: $paleblue;
+        line-height: 2rem;
+
+        & + li {
+          margin-top: 0.25rem;
+        }
+
+        &:hover {
+          cursor: pointer;
+          color: white;
+        }
+
+        &.navigation-active {
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+header,
+.card {
+  border-radius: $borderRadius;
+  width: 12rem;
+  max-width: 90vw;
+  overflow: hidden;
+}
+
+main {
+  display: grid;
+  grid-template: 1fr 1fr/1fr 1fr 1fr;
+  gap: 1.5rem;
+  justify-items: stretch;
+  align-items: stretch;
+
+  .card {
+    &- {
+      &work {
+        background-color: $lightOrange;
+      }
+      &play {
+        background-color: $softBlue;
+      }
+      &study {
+        background-color: $lightRed;
+      }
+      &exercise {
+        background-color: $limeGreen;
+      }
+      &social {
+        background-color: $violet;
+      }
+      &self-care {
+        background-color: $softOrange;
+      }
+    }
+
+    &:hover {
+      .header-card,
+      .times,
+      .current-time,
+      .previous-time {
+        background-color: $desaturatedDarkBlue;
+        cursor: pointer;
+      }
+    }
+
+    .banner {
+      position: relative;
+      height: 2rem;
+      width: 100%;
+      overflow: hidden;
+
+      img {
+        position: absolute;
+        right: 0.5rem;
+        top: -0.5rem;
+        // height: 3.5rem;
+        width: 3.5rem;
+      }
+    }
+
+    &-exercise .banner img {
+      top: 0rem;
+    }
+
+    &-self-care .banner img {
+      top: -0.75rem;
+    }
+
+    .header-card,
+    .current-time,
+    .previous-time {
+      background-color: $darkBlue;
+      z-index: 1;
+    }
+
+    .header-card {
+      border-top-right-radius: $borderRadius;
+      border-top-left-radius: $borderRadius;
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem;
+
+      h2 {
+        font-size: small;
+        font-weight: 500;
+        color: white;
+      }
+
+      button {
+        all: unset;
+
+        img {
+          width: 1rem;
+        }
+
+        &:hover {
+          img {
+            filter: saturate(1) brightness(5);
+          }
+        }
+      }
+    }
+
+    .times {
+      background-color: $darkBlue;
+      border-bottom-right-radius: $borderRadius;
+      border-bottom-left-radius: $borderRadius;
+    }
+
+    .current-time {
+      font-size: 3rem;
+      color: white;
+      padding-inline: 1rem;
+      font-weight: 300;
+    }
+
+    .previous-time {
+      font-size: small;
+      padding: 0.25rem 1rem 1.5rem;
+    }
+  }
+}
+
+footer {
+  color: black;
+  text-align: center;
+  font-size: small;
+}
+
+@media screen and (max-width: 1440px) {
+  #container {
+    padding: 4rem 1rem;
+  }
+
+  #container,
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header,
+  main,
+  .card {
+    width: -webkit-fill-available;
+  }
+
+  header {
+    & > div {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.25rem 1rem;
+
+      br {
+        display: none;
+      }
+
+      h1 {
+        margin-top: 0;
+
+        span {
+          &:last-child {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-inline: 2rem;
+    }
+  }
+
+  .times {
+    background-color: $darkBlue;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
